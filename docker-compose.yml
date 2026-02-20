@@ -26,7 +26,7 @@ services:
     container_name: memento_api
     restart: unless-stopped
     env_file:
-      - ./backend/.env
+      - ./.env
     environment:
       # Override DATABASE_URL so it always uses the Docker service name
       DATABASE_URL: postgresql://memento:memento_password@db:5432/memento_db
@@ -36,7 +36,7 @@ services:
       db:
         condition: service_healthy
     volumes:
-      - ./backend:/app
+      - .:/app
 
   # ── pgAdmin ─────────────────────────────────────────────────────────────────
   pgadmin:
