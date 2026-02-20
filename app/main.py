@@ -28,6 +28,7 @@ app.include_router(entries.router)
 
 @app.on_event("startup")
 def startup():
+    logger.info("CORS allowed origins: %s", settings.allowed_origins_list)
     retries = 5
     for attempt in range(1, retries + 1):
         try:
